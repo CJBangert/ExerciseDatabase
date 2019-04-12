@@ -41,7 +41,9 @@ app.get('/',function(req,res){
 
 
 app.get('/api/all',function(req,res){
-  res.json(_DATA)
+    res.render('allAsJson',{
+    data: JSON.stringify(_DATA)
+  })
 })
 app.get('/create',function(req,res){
   res.render("create")
