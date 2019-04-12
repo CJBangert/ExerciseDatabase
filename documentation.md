@@ -9,7 +9,7 @@ Date: 3/27/2019
 
 Project Topic: Exercises
 
-URL: localhost:3000
+URL: https://exercise-database.herokuapp.com/
 
 ---
 
