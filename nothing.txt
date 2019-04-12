@@ -1,0 +1,14 @@
+<!-- <script type="text/javascript">
+
+/*function check(){
+	var inputFromBar = document.getElementById("input").value;
+	//var decodedJson = decodeURIComponent("{{{data}}}");
+  	var d = JSON.parse(data);
+    regex = "/^"+inputFromBar+"/"
+    var r = new RegExp(regex,"g")
+    d.filter(x=>!r.test(x.name))
+    $('#info').load('/'+ '#info');
+}*/
+
+
+</script> -->

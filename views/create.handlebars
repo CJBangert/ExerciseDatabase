@@ -1,0 +1,26 @@
+<h1>Create New Exercise</h1>
+<article>
+    <form method="POST" action="/api/create">
+        <div>
+            <label>Exercise Name:</label>
+            <input type="text" name="name" size="50" placeholder="Excercise Name">
+        </div>
+         <div>
+            <label>Duration (in minutes):</label>
+            <input type="value" name="duration" size="50" placeholder="duration">
+        </div>
+        <div >
+            <label>Muscle Groups Targeted (enter up to 10):</label>
+            <input type="text" name="muscle_groups" size="50" placeholder="Group1 Group2 Group3 (seperated by spaces)">
+        </div>
+         <div>
+            <label>Difficulty Rating(1-10):</label>
+            <input type="value" name="difficulty" size="50" placeholder="1-10">
+        </div>
+         <div>
+            <label>How Likely are You to get Injured? (score 1-10):</label>
+            <input type="value" name="inj_potential" size="50" placeholder="1-10">
+        </div>
+        <button type="submit">Create Exercise </button>
+    </form>
+</article>
