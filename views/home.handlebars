@@ -1,11 +1,11 @@
 <title>Exercises</title>
 <p style = "font-size:50px">Exercises</p>
-<sbar style="font-size: 16px">Search:</sbar> <input type="text" id="input" size="50" maxLength="50" placeholder="Enter Exercise Name" oninput='check()'>
-	
+<sbar style="font-size: 16px">Search:</sbar> <input type="text" id="input" name ="input" size="50" maxLength="50" placeholder="Enter Exercise Name" >
+<data class="data" id="data">
 {{#each data}}
 <hr>
-<article>
-	<h2 style = "font-size:30px"> {{this.name}}</h2>
+<article class = "entry">
+	<h2 class = "name" style = "font-size:30px"> {{this.name}}</h2>
 	<div style = "font-size:20px">Duration(mins):{{this.duration}}</div>
 	<div style = "font-size:20px">Muscle Groups Targeted:  {{this.muscle_groups}} </div>
 	<div style = "font-size:20px">Difficulty(1-10): {{this.difficulty}} </div>
@@ -13,31 +13,43 @@
 </article> 
 <hr> 
 {{/each}}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="web_underscore.js"></script>
+<article id="nufin" hidden="hidden">
+    <h1>There are no matches for your query</h1>
+</article>
+</data>
 
 <script type="text/javascript">
-var decodedJson = decodeURIComponent("{{{encodedJson}}}");
-var jsonObj = JSON.parse(decodedJson);
-var bckup = jsonObj
-function check(){
-	var inputFromBar = document.getElementById("input").value;
-	inputFromBar = inputFromBar.toLowerCase();
-    inputFromBar = inputFromBar.replace(/\b\w/g, function(l){ return l.toUpperCase() });
-	var length = jsonObj.length;
-	regex =  inputFromBar 
-	console.log(regex)
-    var r = new RegExp(regex)
-    newJson = []
-    jsonObj = _.filter(jsonObj,function(x){
-    	if(r.test(x.name)) return x
-										});
-    newJson = []
-    console.log(JSON.stringify(jsonObj)+ " lk")
-   jsonObj = bckup
-    console.log("unfiltered: "+ JSON.stringify(jsonObj))
-}
+
+
+    $(document).ready(function () {
+        $("#input").keyup(function () {
+            var word = $(this).val().toLowerCase();
+            var count = 0;
+
+            $(".entry").each(function (index, element) {
+                var name = $(element).find(".name").text().toLowerCase();
+
+                if (name.search(new RegExp(word)) < 0) {
+                    $(this).fadeOut();
+                }
+                else {
+                    $(this).show();
+                    count++;
+                }
+            });
+
+            if (count == 0) { 
+                $("#nufin").show();
+            }
+            else { 
+                $("#nufin").hide();
+            }
+        
+        });
+
+    });
+
+
 
 
 </script>
